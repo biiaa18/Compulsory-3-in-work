@@ -98,13 +98,31 @@ public:
 		return size;
 	}
 
-	/*void getFiles(int numFiles) {
-		for (int i = 0; i < numFiles; i++)
-		{
-			return Folder* getFolder("PC")->printFiles();
+	void changeFileName(std::string fileName, std::string newFileName) {
+		for (int i = 0; i < numberOfFiles; i++) {
+			if (fileName == files[i].getName()) {
+				files[i].setName(newFileName);
+			}
+			
 		}
-	}*/
+		
+	}
 
-	
+	void getLargestFile() {
+		int LargestFile=0;
+		for (int i = 0; i < numberOfFiles; i++) {
+			if (LargestFile < files[i].getSize()) {
+				LargestFile = files[i].getSize();
+			}
+		}
+		for (int j = 0; j < numberOfFiles; j++) {
+			if (LargestFile == files[j].getSize()) {
+				files[j].printInfo();
+			}
+		}
+	}
+
+
+
 };
 
